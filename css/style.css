@@ -1,0 +1,151 @@
+@font-face {
+   font-family: 'plex';
+   src: url(./IBMPlexSans-Medium.ttf);
+}
+
+body {
+   margin: 0;
+   background-color: rgb(255, 255, 255);
+   font-family: 'plex' !important;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   height: 100vh;
+}
+
+.purchase {
+   color: white;
+   background-color: #0ECB81;
+}
+
+.sell {
+   color: white;
+   background-color: rgb(246, 70, 93);
+}
+
+.inputDiv label {
+   text-align: center;
+   padding: 5px;
+   margin: auto;
+}
+
+input {
+   background-color: #EAECEF;
+   height: 30px;
+   padding: 4px 10px;
+   margin: 10px 0;
+   width: 120px;
+}
+
+input,
+label,
+button {
+   display: block;
+   font-family: 'plex' !important;
+   font-size: 16px;
+   border-radius: 4px;
+   border: none;
+   outline: none;
+}
+
+.result {
+   margin-top: 15px;
+   font-family: 'plex' !important;
+   color: rgb(133, 142, 157);
+   font-size: 14px;
+   letter-spacing: 0.5px;
+}
+
+/* ___________________________________________ */
+
+.search {
+   margin-top: 30px;
+   width: 200px;
+   height: 35px;
+}
+
+.list {
+   width: 350px;
+}
+
+.task {
+   display: block;
+   margin-top: 30px;
+   padding: 10px 30px;
+   background-color: #EAECEF;
+   border-radius: 4px;
+   text-decoration: none;
+}
+
+a {
+   margin: 0;
+   font-size: 14pt;
+   font-weight: normal;
+   color: rgb(49, 49, 49);
+   margin-bottom: 15px;
+}
+
+ul {
+   margin: 0%;
+   padding: 10px 0px 10px 15px;
+}
+
+li {
+   font-size: 18px;
+   padding: 5px 0;
+   cursor: pointer;
+}
+
+li:hover {
+   background-color: #dadee2;
+}
+
+.product {
+   color: rgb(82, 82, 82);
+}
+
+.price {
+   color: #0ECB81;
+   float: right;
+}
+
+/*  */
+
+.fee {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   width: 350px;
+}
+
+.fee label,
+.fee input {
+   background-color: #EAECEF;
+   color: #898b8f;
+}
+
+.fee label {
+   font-size: 16px;
+   position: relative;
+   padding: 5px 15px;
+   margin: 5px;
+}
+
+.fee input[type="checkbox"] {
+   width: 100%;
+   height: 100%;
+   -webkit-appearance: none;
+   appearance: none;
+   margin: 0;
+   padding: 10px 20px;
+   position: absolute;
+   left: 0;
+   top: 0;
+   background-color: transparent;
+}
+
+.fee input[type="checkbox"]:checked {
+   background-color: #898b8f28;
+   border: 3px solid #898b8f;
+}

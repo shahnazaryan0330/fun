@@ -1,41 +1,38 @@
 const feeInput = document.querySelectorAll('.feeInput')
-feeInput[1].checked = true
-let varFee = feeInput[1].value
+feeInput[2].checked = true
+let varFee = +feeInput[2].value
 
 feeInput.forEach(item => {
    item.addEventListener('change', event => {
-      let prevCheckInput = document.querySelector("input[type='checkbox']:checked")
+      const checkedInput = document.querySelectorAll('.feeInput')
 
-      if(prevCheckInput.checked) {
-         prevCheckInput.checked = false
-      }
-      else {
-         varFee = event.target.value
-      }
-
-      console.log(varFee);
+      checkedInput.forEach(item => {
+         if (item.checked) {
+            item.checked = false
+         }
+      })
+      event.target.checked = true
+      varFee = +event.target.value
+      calc()
    })
 })
 
 const inputEvent = document.querySelector('#purchase')
 
-inputEvent.addEventListener('input', () => {
-   const purchase = +inputEvent.value
-   calc(purchase)
-})
+inputEvent.addEventListener('input', () => {calc()})
 
-function calc(num) {
+function calc() {
+   const purchase = +inputEvent.value
    const result = document.querySelector('.result')
    const sell = document.querySelector('#sell')
 
-   let purchaseToRub = num * 73
-   let myFee = purchaseToRub * 0.05 > 300 ? purchaseToRub * 0.05 : 300
-   let funpayFee = (purchaseToRub + myFee) * 0.03
+   let purchaseToRub = purchase * 73
+   let funpayFee = (purchaseToRub + varFee) * 0.03
 
-   let finalPrice = Math.ceil(purchaseToRub + myFee + funpayFee)
+   let finalPrice = Math.ceil(purchaseToRub + varFee + funpayFee)
 
-   sell.value = num ? finalPrice : ''
-   result.innerHTML = num ? myFee : 'Service fee'
+   sell.value = purchase ? finalPrice : ''
+   result.innerHTML = purchase ? varFee : 'Service fee'
 }
 
 // 
@@ -45,20 +42,20 @@ const data = {
       {
          shop: 'COINBEE Steam Gift Card',
          products: [
-            {name: '50 TRY', price: '3$'},
-            {name: '100 TRY', price: '6$'},
-            {name: '200 TRY', price: '12$'},
-            {name: '250 TRY', price: '16$'},
-            {name: '300 TRY', price: '20$'},
+            { name: '50 TRY', price: '3$' },
+            { name: '100 TRY', price: '6$' },
+            { name: '200 TRY', price: '12$' },
+            { name: '250 TRY', price: '16$' },
+            { name: '300 TRY', price: '20$' },
          ],
          url: "https://www.coinsbee.com/ru/Steam-bitcoin"
       },
       {
          shop: 'TOKENSTORE Steam Gift Card',
          products: [
-            {name: '50 TRY', price: '2,7$'},
-            {name: '100 TRY', price: '5,4$'},
-            {name: '200 TRY', price: '11$'},
+            { name: '50 TRY', price: '2,7$' },
+            { name: '100 TRY', price: '5,4$' },
+            { name: '200 TRY', price: '11$' },
          ],
          url: "https://s.binance.com/F4WC9KeZ"
       },
@@ -103,7 +100,7 @@ searchBtn.addEventListener('input', event => {
 
 })
 
-function createTask (data) {
+function createTask(data) {
    // Task
    const task = document.createElement('div')
    task.classList.add('task')
